@@ -2,12 +2,16 @@ import React from 'react';
 import RoustesApp from './routes';
 import { BrowserRouter } from 'react-router-dom';
 import Header from './components/Header';
+import { Provider } from 'react-redux';
+import store from './store';
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Header />
-      <RoustesApp />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Header />
+        <RoustesApp />
+      </BrowserRouter>
+    </Provider>
   );
 }
