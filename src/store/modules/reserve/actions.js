@@ -1,3 +1,4 @@
+//ouvida pelo saga
 export function addReserveRequest(id) {
   return {
     type: 'ADD_RESERVE_REQUEST',
@@ -5,6 +6,7 @@ export function addReserveRequest(id) {
   };
 }
 
+//ouvida pelo reducer
 export function addReserveSuccess(trip) {
   return {
     type: 'ADD_RESERVE_SUCCESS',
@@ -19,9 +21,18 @@ export function removeReserve(id) {
   };
 }
 
-export function updateAmountReserve(id, amount) {
+//  ouvida pelo saga
+export function updateAmountRequest(id, amount) {
   return {
-    type: 'UPDATE_RESERVE',
+    type: 'UPDATE_RESERVE_REQUEST',
+    id,
+    amount
+  };
+}
+// ouvida pelo reducer
+export function updateAmountSuccess(id, amount) {
+  return {
+    type: 'UPDATE_RESERVE_SUCCESS',
     id,
     amount
   };
