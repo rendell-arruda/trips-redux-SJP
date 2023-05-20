@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useState, useEffect } from 'react';
-import api from '../../assets/services/api';
-import { MdFlightTakeoff } from 'react-icons/md';
-import './style.css';
 import { addReserveRequest } from '../../store/modules/reserve/actions';
+import { MdFlightTakeoff } from 'react-icons/md';
 
-export default function Home() {
+import api from '../../services/api';
+import './style.css';
+
+export default function Home({ history }) {
   const dispatch = useDispatch();
   const [trips, setTrips] = useState([]);
 
@@ -30,10 +30,11 @@ export default function Home() {
           <li key={trip.id}>
             <img src={trip.image} alt={trip.title} />
             <strong>{trip.title}</strong>
-            <span>Status: {trip.status ? 'Disponível' : 'Indisponível'}</span>
+            <span>Status: {trip.status ? 'Disponivel' : 'Indisponivel'}</span>
+
             <button type="button" onClick={() => handleAdd(trip.id)}>
               <div>
-                <MdFlightTakeoff size={16} color="#fff" />
+                <MdFlightTakeoff size={16} color="#FFF" />
               </div>
               <span>SOLICITAR RESERVA</span>
             </button>
